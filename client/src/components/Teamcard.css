@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+  }
+  
+  .container {
+    height: 200vh; /* Container height ensures scrolling */
+    font-family: sans-serif;
+  }
+  
+  .upper-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #245501; /* Dark green background */
+    color: #D7F4C2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2;
+    transition: transform 1s ease-in-out;
+  }
+  
+  .upper-section.scrolled {
+    transform: translateY(-100vh); /* Move the upper section out of view */
+  }
+  
+  .meet-text {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .impressionable-text {
+    font-size: 2rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .impressionable-text span {
+    font-family: 'Cursive';
+    font-size: 2.5rem;
+    color: #D7F4C2;
+  }
+  
+  .core-team {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-top: 20px; /* Spacing above the core team text */
+  }
+  
+  .below-section {
+    position: fixed;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width: 100%;
+    height: 100vh;
+    background-color: #245501; /* Dark green background */
+    color: black;
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    justify-content: flex-start; /* Align items at the top */
+    z-index: 1;
+    transition: opacity 0.5s; /* Smooth transition for opacity */
+    opacity: 0; /* Initially hidden */
+    padding: 50px; /* Padding around the section */
+    transform: translate(-50%, -50%); /* Center the section */
+  }
+  
+  .below-section h1 {
+    text-align: center; /* Center the heading */
+    color: #D7F4C2; /* Heading color */
+    margin-bottom: 20px; /* Space below the heading */
+  }
+  
+  .below-section.visible {
+    opacity: 1; /* Make visible when scrolled */
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+    padding: 20px;
+    background-color: #d7f4c2; /* Light green background */
+    border-radius: 10px;
+    box-shadow: 
+      5px 5px 5px rgba(78, 255, 116, 0.2), /* Original shadow */
+      10px 10px 10px rgba(49, 89, 41, 0.5), /* White shadow */
+      30px 30px 30px rgba(0, 0, 0, 0.5); /* Light green shadow */
+    margin: 20px; /* Space around the card */
+    width: calc(100% - 40px); /* Full width minus margin */
+    max-width: 800px; /* Limit maximum width */
+    height: 300px; /* Set height for the cards */
+    transition: transform 0.2s; /* Animation on hover */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transform: scale(1.05);
+  }
+  
+  .card:hover {
+    transform: scale(1.08); /* Scale up the card on hover */
+  }
+  
+  /* Uncomment the below for a slight zoom effect on hover
+  .card:hover {
+    transform: scale(1.02); 
+  }
+  */
+  
+  .card img {
+    width: 170px; /* Adjust based on your design */
+    height: 170px;
+    border-radius: 10px;
+    margin-left: 20px; /* Space between text and image */
+  }
+  
+  .card h2 {
+    font-size: 2.5rem; /* Increased font size */
+    font-weight: bold; /* Bold font */
+    margin-bottom: 10px; /* Space below the title */
+  }
+  
+  .card p {
+    font-size: 1.5rem; /* Adjusted for readability */
+    margin: 0; /* Remove default margin */
+    line-height: 1.5; /* Improved line height */
+  }
+  
+  .card .username {
+    font-size: 1rem; /* Username style */
+    color: gray; /* Gray color for username */
+    margin-top: 10px; /* Space above username */
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+    .below-section {
+      padding: 20px; /* Reduce padding for mobile */
+      justify-content: center; /* Center cards vertically */
+    }
+  
+    .below-section h1 {
+      font-size: 2rem; /* Adjusted font size on mobile */
+    }
+  
+    .card {
+      width: 90%; /* Full width cards on mobile */
+      margin: 10px 0; /* Space between cards */
+    }
+  
+    .card h2 {
+      font-size: 1.5rem; /* Decreased font size on mobile */
+    }
+    
+    .card p {
+      font-size: 1rem; /* Adjusted for readability on mobile */
+    }
+    
+    .card .username {
+      font-size: 0.8rem; /* Smaller username on mobile */
+    }
+  }
+  
